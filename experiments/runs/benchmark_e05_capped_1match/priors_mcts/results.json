@@ -1,0 +1,753 @@
+{
+  "summary": {
+    "checkpoint": "impactful_possession_pipeline/runs/phase1_v3_value_head_finetune_w64/best_forward_simulator.pt",
+    "holdout_json": "paper_reproduction/holdout_table2_200.json",
+    "noop_cache_json": null,
+    "seed": 20260727,
+    "temperature": 0.8,
+    "top_p": 0.95,
+    "num_matches": 1,
+    "num_requested_matches": 1,
+    "num_simulations": 10,
+    "step_minutes": 5,
+    "uniform_prior_weight": 0.05,
+    "rollout_lookahead_tokens": 250,
+    "lookahead_minutes": null,
+    "c_puct": 6.0,
+    "selection_policy": "visits",
+    "risk_penalty": 0.0,
+    "noop_margin": 0.0,
+    "reward_mode": "possession",
+    "mean_delta_pp": -4.65463119028926,
+    "std_delta_pp": 0.0,
+    "pct_matches_improved": 0.0,
+    "mean_gain_when_improved_pp": 0.0,
+    "bootstrap_lcb90_pp": -4.65463119028926,
+    "complete": true,
+    "passes_lcb": false
+  },
+  "matches": [
+    {
+      "match": "3754345.json",
+      "real_home_possession": 0.5290581162324649,
+      "no_intervention_home_possession": 0.5822998872604284,
+      "no_intervention_source": "generated",
+      "mcts_home_possession": 0.5357535753575358,
+      "delta_pp": -4.65463119028926,
+      "used_subs": 3,
+      "used_tactical_shifts": 3,
+      "interventions": [
+        {
+          "minute": 45,
+          "chosen_action": "ACTION::HOME_TACTIC_FORM_442",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.010641669760884808,
+              "visit_count": 1,
+              "mean_value": 0.8,
+              "std_value": 0.0,
+              "conservative_value": 0.8
+            },
+            {
+              "action": "ACTION::HOME_SUB_ATTACK",
+              "prior": 0.00319673782436366,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_NEUTRAL",
+              "prior": 0.01260407952836795,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_ATTACK",
+              "prior": 0.02990668008574926,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_NEUTRAL",
+              "prior": 0.021904403595631502,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+              "prior": 0.004448267186049247,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENDER",
+              "prior": 0.08983719728031099,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGBACK",
+              "prior": 0.006674148414718021,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENSIVE_MIDFIELDER",
+              "prior": 0.01708548658621005,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER",
+              "prior": 0.013052050184246747,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_ATTACKING_MIDFIELDER",
+              "prior": 0.015786331949514888,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGER",
+              "prior": 0.019399830549924,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_FORWARD",
+              "prior": 0.027272439290194128,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4231",
+              "prior": 0.17421021392172473,
+              "visit_count": 2,
+              "mean_value": 0.6921052631578948,
+              "std_value": 0.007894736842105232,
+              "conservative_value": 0.6921052631578948
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_433",
+              "prior": 0.11468952730584664,
+              "visit_count": 2,
+              "mean_value": 0.7642543859649122,
+              "std_value": 0.027412280701754388,
+              "conservative_value": 0.7642543859649122
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_442",
+              "prior": 0.25255202672709665,
+              "visit_count": 5,
+              "mean_value": 0.8107959292169818,
+              "std_value": 0.07813483817635596,
+              "conservative_value": 0.8107959292169818
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4141",
+              "prior": 0.024084183618180207,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4411",
+              "prior": 0.032406756880601656,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_352",
+              "prior": 0.051216559074003756,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_41212",
+              "prior": 0.013755002173755155,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_3421",
+              "prior": 0.020080501523626896,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_343",
+              "prior": 0.04519590653899905,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            }
+          ]
+        },
+        {
+          "minute": 50,
+          "chosen_action": "ACTION::HOME_SUB_ROLE_WINGER",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.003505817413114659,
+              "visit_count": 1,
+              "mean_value": 0.631578947368421,
+              "std_value": 0.0,
+              "conservative_value": 0.631578947368421
+            },
+            {
+              "action": "ACTION::HOME_SUB_ATTACK",
+              "prior": 0.027283949451446302,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_NEUTRAL",
+              "prior": 0.006196963384802349,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+              "prior": 0.05121290786290203,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENDER",
+              "prior": 0.055570760051060285,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGBACK",
+              "prior": 0.10856032592629666,
+              "visit_count": 1,
+              "mean_value": 0.5625,
+              "std_value": 0.0,
+              "conservative_value": 0.5625
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENSIVE_MIDFIELDER",
+              "prior": 0.11858249816482981,
+              "visit_count": 1,
+              "mean_value": 0.64,
+              "std_value": 0.0,
+              "conservative_value": 0.64
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER",
+              "prior": 0.10136075909056519,
+              "visit_count": 1,
+              "mean_value": 0.47368421052631576,
+              "std_value": 0.0,
+              "conservative_value": 0.47368421052631576
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_ATTACKING_MIDFIELDER",
+              "prior": 0.04623171314109507,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGER",
+              "prior": 0.3548991406035069,
+              "visit_count": 5,
+              "mean_value": 0.6214207290294247,
+              "std_value": 0.21842804628533632,
+              "conservative_value": 0.6214207290294247
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_FORWARD",
+              "prior": 0.12659516491038067,
+              "visit_count": 1,
+              "mean_value": 0.65,
+              "std_value": 0.0,
+              "conservative_value": 0.65
+            }
+          ]
+        },
+        {
+          "minute": 55,
+          "chosen_action": "ACTION::HOME_SUB_ROLE_WINGER",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.0064115908107339106,
+              "visit_count": 1,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ATTACK",
+              "prior": 0.004071393488877676,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_NEUTRAL",
+              "prior": 0.0036400181519277777,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+              "prior": 0.15938011321335638,
+              "visit_count": 2,
+              "mean_value": 0.47916666666666663,
+              "std_value": 0.020833333333333343,
+              "conservative_value": 0.47916666666666663
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENDER",
+              "prior": 0.050425787689742534,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGBACK",
+              "prior": 0.05579364439656933,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENSIVE_MIDFIELDER",
+              "prior": 0.15372272382387717,
+              "visit_count": 1,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER",
+              "prior": 0.15157308487298524,
+              "visit_count": 1,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_ATTACKING_MIDFIELDER",
+              "prior": 0.04324922865736266,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGER",
+              "prior": 0.2605842656429016,
+              "visit_count": 4,
+              "mean_value": 0.3620750988142293,
+              "std_value": 0.1385992642474356,
+              "conservative_value": 0.3620750988142293
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_FORWARD",
+              "prior": 0.11114814925166566,
+              "visit_count": 1,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            }
+          ]
+        },
+        {
+          "minute": 60,
+          "chosen_action": "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.069485779158423,
+              "visit_count": 1,
+              "mean_value": 0.47368421052631576,
+              "std_value": 0.0,
+              "conservative_value": 0.47368421052631576
+            },
+            {
+              "action": "ACTION::HOME_SUB_ATTACK",
+              "prior": 0.0036298872080336004,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_NEUTRAL",
+              "prior": 0.03031355247793706,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+              "prior": 0.014492975915300072,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENDER",
+              "prior": 0.11878002429415524,
+              "visit_count": 1,
+              "mean_value": 0.14285714285714285,
+              "std_value": 0.0,
+              "conservative_value": 0.14285714285714285
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGBACK",
+              "prior": 0.04728925457203752,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_DEFENSIVE_MIDFIELDER",
+              "prior": 0.0436296849471104,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER",
+              "prior": 0.26383318765020103,
+              "visit_count": 4,
+              "mean_value": 0.48085748792270533,
+              "std_value": 0.19908227909769277,
+              "conservative_value": 0.48085748792270533
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_ATTACKING_MIDFIELDER",
+              "prior": 0.10466906560878156,
+              "visit_count": 1,
+              "mean_value": 0.47619047619047616,
+              "std_value": 0.0,
+              "conservative_value": 0.47619047619047616
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_WINGER",
+              "prior": 0.20699794404107688,
+              "visit_count": 2,
+              "mean_value": 0.33630952380952384,
+              "std_value": 0.04464285714285712,
+              "conservative_value": 0.33630952380952384
+            },
+            {
+              "action": "ACTION::HOME_SUB_ROLE_FORWARD",
+              "prior": 0.0968786441269436,
+              "visit_count": 1,
+              "mean_value": 0.5,
+              "std_value": 0.0,
+              "conservative_value": 0.5
+            }
+          ]
+        },
+        {
+          "minute": 65,
+          "chosen_action": "ACTION::NOOP",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 1.0,
+              "visit_count": 10,
+              "mean_value": 0.5277023062189304,
+              "std_value": 0.1815230388081467,
+              "conservative_value": 0.5277023062189304
+            }
+          ]
+        },
+        {
+          "minute": 70,
+          "chosen_action": "ACTION::HOME_TACTIC_FORM_4231",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.0033447815557084964,
+              "visit_count": 1,
+              "mean_value": 0.3684210526315789,
+              "std_value": 0.0,
+              "conservative_value": 0.3684210526315789
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_ATTACK",
+              "prior": 0.03898727082341331,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_NEUTRAL",
+              "prior": 0.038774762085491465,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4231",
+              "prior": 0.2186775930061657,
+              "visit_count": 4,
+              "mean_value": 0.6523550724637681,
+              "std_value": 0.263931494532053,
+              "conservative_value": 0.6523550724637681
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_433",
+              "prior": 0.16716803479939876,
+              "visit_count": 2,
+              "mean_value": 0.6114130434782609,
+              "std_value": 0.26358695652173914,
+              "conservative_value": 0.6114130434782609
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_442",
+              "prior": 0.1052904978969699,
+              "visit_count": 1,
+              "mean_value": 0.782608695652174,
+              "std_value": 0.0,
+              "conservative_value": 0.782608695652174
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4141",
+              "prior": 0.035513265703375374,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4411",
+              "prior": 0.14755035915658962,
+              "visit_count": 1,
+              "mean_value": 0.36363636363636365,
+              "std_value": 0.0,
+              "conservative_value": 0.36363636363636365
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_352",
+              "prior": 0.10332240207203713,
+              "visit_count": 1,
+              "mean_value": 0.55,
+              "std_value": 0.0,
+              "conservative_value": 0.55
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_41212",
+              "prior": 0.03260312624856494,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_3421",
+              "prior": 0.06526550031988235,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_343",
+              "prior": 0.043502406332402946,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            }
+          ]
+        },
+        {
+          "minute": 75,
+          "chosen_action": "ACTION::NOOP",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 1.0,
+              "visit_count": 10,
+              "mean_value": 0.719318597004019,
+              "std_value": 0.1601912678760431,
+              "conservative_value": 0.719318597004019
+            }
+          ]
+        },
+        {
+          "minute": 80,
+          "chosen_action": "ACTION::HOME_TACTIC_FORM_352",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 0.005265845509563383,
+              "visit_count": 1,
+              "mean_value": 0.25,
+              "std_value": 0.0,
+              "conservative_value": 0.25
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_ATTACK",
+              "prior": 0.1130481149012198,
+              "visit_count": 2,
+              "mean_value": 0.5297619047619048,
+              "std_value": 0.27976190476190477,
+              "conservative_value": 0.5297619047619048
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_NEUTRAL",
+              "prior": 0.11466793138825804,
+              "visit_count": 2,
+              "mean_value": 0.7460869565217392,
+              "std_value": 0.09391304347826085,
+              "conservative_value": 0.7460869565217392
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4231",
+              "prior": 0.03962159554951692,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_433",
+              "prior": 0.0962071061771142,
+              "visit_count": 1,
+              "mean_value": 0.36363636363636365,
+              "std_value": 0.0,
+              "conservative_value": 0.36363636363636365
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_442",
+              "prior": 0.09430753134902814,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4141",
+              "prior": 0.12094834645298998,
+              "visit_count": 1,
+              "mean_value": 0.45454545454545453,
+              "std_value": 0.0,
+              "conservative_value": 0.45454545454545453
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_4411",
+              "prior": 0.03913046740245672,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_352",
+              "prior": 0.19857187805142404,
+              "visit_count": 3,
+              "mean_value": 0.5388888888888889,
+              "std_value": 0.14989708403591157,
+              "conservative_value": 0.5388888888888889
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_41212",
+              "prior": 0.08958374150263645,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_3421",
+              "prior": 0.016777168552651673,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            },
+            {
+              "action": "ACTION::HOME_TACTIC_FORM_343",
+              "prior": 0.0718702731631406,
+              "visit_count": 0,
+              "mean_value": 0.0,
+              "std_value": 0.0,
+              "conservative_value": 0.0
+            }
+          ]
+        },
+        {
+          "minute": 85,
+          "chosen_action": "ACTION::NOOP",
+          "nodes": [
+            {
+              "action": "ACTION::NOOP",
+              "prior": 1.0,
+              "visit_count": 10,
+              "mean_value": 0.6259324364930772,
+              "std_value": 0.17571450344215217,
+              "conservative_value": 0.6259324364930772
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

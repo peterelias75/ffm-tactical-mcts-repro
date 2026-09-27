@@ -1,0 +1,392 @@
+{
+  "summary": {
+    "num_matches": 3,
+    "num_decisions": 27,
+    "fraction_decisions_any_positive_delta": 0.37037037037037035,
+    "fraction_decisions_clearing_1_5pp_gate": 0.07407407407407407,
+    "fraction_decisions_positive_utility": 0.0,
+    "mean_best_action_delta_pp": -0.5901747279696994,
+    "max_best_action_delta_pp": 3.073948621749878,
+    "mean_best_action_utility_pp": -5.758924062715637,
+    "diagnosis": "A candidate must clear both the delta gate and positive utility. Zero positive utility means the configured uncertainty penalty prevents all rollout confirmation."
+  },
+  "per_action": {
+    "ACTION::HOME_SUB_ATTACK": {
+      "n": 27,
+      "mean_delta_pp": -0.781525726671572,
+      "max_delta_pp": 2.83028781414032
+    },
+    "ACTION::HOME_SUB_NEUTRAL": {
+      "n": 27,
+      "mean_delta_pp": -0.7988096387298019,
+      "max_delta_pp": 2.873551845550537
+    },
+    "ACTION::HOME_SUB_ROLE_ATTACKING_MIDFIELDER": {
+      "n": 27,
+      "mean_delta_pp": -0.8481212236263134,
+      "max_delta_pp": 2.834421396255493
+    },
+    "ACTION::HOME_SUB_ROLE_CENTRAL_MIDFIELDER": {
+      "n": 27,
+      "mean_delta_pp": -1.019060942861769,
+      "max_delta_pp": 2.6512473821640015
+    },
+    "ACTION::HOME_SUB_ROLE_DEFENDER": {
+      "n": 27,
+      "mean_delta_pp": -0.7871896028518677,
+      "max_delta_pp": 2.911660075187683
+    },
+    "ACTION::HOME_SUB_ROLE_DEFENSIVE_MIDFIELDER": {
+      "n": 27,
+      "mean_delta_pp": -0.8195390303929647,
+      "max_delta_pp": 2.9122203588485718
+    },
+    "ACTION::HOME_SUB_ROLE_FORWARD": {
+      "n": 27,
+      "mean_delta_pp": -0.7954281789285166,
+      "max_delta_pp": 3.0160516500473022
+    },
+    "ACTION::HOME_SUB_ROLE_GOALKEEPER": {
+      "n": 27,
+      "mean_delta_pp": -0.6866535654774418,
+      "max_delta_pp": 3.073948621749878
+    },
+    "ACTION::HOME_SUB_ROLE_WINGBACK": {
+      "n": 27,
+      "mean_delta_pp": -0.8419461824275829,
+      "max_delta_pp": 2.8989672660827637
+    },
+    "ACTION::HOME_SUB_ROLE_WINGER": {
+      "n": 27,
+      "mean_delta_pp": -0.7803119994975902,
+      "max_delta_pp": 2.9349535703659058
+    },
+    "ACTION::HOME_TACTIC_ATTACK": {
+      "n": 27,
+      "mean_delta_pp": -0.7816503445307413,
+      "max_delta_pp": 2.928805351257324
+    },
+    "ACTION::HOME_TACTIC_FORM_3421": {
+      "n": 27,
+      "mean_delta_pp": -0.8071390567002473,
+      "max_delta_pp": 2.9411405324935913
+    },
+    "ACTION::HOME_TACTIC_FORM_343": {
+      "n": 27,
+      "mean_delta_pp": -0.747163869716503,
+      "max_delta_pp": 2.9240548610687256
+    },
+    "ACTION::HOME_TACTIC_FORM_352": {
+      "n": 27,
+      "mean_delta_pp": -0.7851602854552092,
+      "max_delta_pp": 2.863210439682007
+    },
+    "ACTION::HOME_TACTIC_FORM_41212": {
+      "n": 27,
+      "mean_delta_pp": -0.6747097880751999,
+      "max_delta_pp": 3.040686249732971
+    },
+    "ACTION::HOME_TACTIC_FORM_4141": {
+      "n": 27,
+      "mean_delta_pp": -0.7486285986723723,
+      "max_delta_pp": 3.0166804790496826
+    },
+    "ACTION::HOME_TACTIC_FORM_4231": {
+      "n": 27,
+      "mean_delta_pp": -0.8295880423651801,
+      "max_delta_pp": 2.881428599357605
+    },
+    "ACTION::HOME_TACTIC_FORM_433": {
+      "n": 27,
+      "mean_delta_pp": -0.7622814840740628,
+      "max_delta_pp": 2.9351145029067993
+    },
+    "ACTION::HOME_TACTIC_FORM_4411": {
+      "n": 27,
+      "mean_delta_pp": -0.8265446733545374,
+      "max_delta_pp": 2.9067903757095337
+    },
+    "ACTION::HOME_TACTIC_FORM_442": {
+      "n": 27,
+      "mean_delta_pp": -0.7498209123258237,
+      "max_delta_pp": 2.8975725173950195
+    },
+    "ACTION::HOME_TACTIC_NEUTRAL": {
+      "n": 27,
+      "mean_delta_pp": -0.8107135693232218,
+      "max_delta_pp": 2.898132801055908
+    }
+  },
+  "best_per_decision": [
+    {
+      "match": "19756.json",
+      "minute": 45,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.48007670044898987,
+      "action_value": 0.46301165223121643,
+      "delta": -0.017065048217773438,
+      "uncertainty": 0.29341039061546326,
+      "utility": -0.12375868493318558
+    },
+    {
+      "match": "19756.json",
+      "minute": 50,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.5439189076423645,
+      "action_value": 0.5375890135765076,
+      "delta": -0.006329894065856934,
+      "uncertainty": 0.08850675076246262,
+      "utility": -0.04130725683271885
+    },
+    {
+      "match": "19756.json",
+      "minute": 55,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.4679044485092163,
+      "action_value": 0.4324980676174164,
+      "delta": -0.03540638089179993,
+      "uncertainty": 0.1442820429801941,
+      "utility": -0.08990509593486787
+    },
+    {
+      "match": "19756.json",
+      "minute": 60,
+      "action": "ACTION::HOME_SUB_ROLE_DEFENDER",
+      "noop_value": 0.5588008165359497,
+      "action_value": 0.5426543354988098,
+      "delta": -0.016146481037139893,
+      "uncertainty": 0.10073700547218323,
+      "utility": -0.05540443295240402
+    },
+    {
+      "match": "19756.json",
+      "minute": 65,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.41598233580589294,
+      "action_value": 0.42159977555274963,
+      "delta": 0.0056174397468566895,
+      "uncertainty": 0.16896796226501465,
+      "utility": -0.05752134704589844
+    },
+    {
+      "match": "19756.json",
+      "minute": 70,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.39869916439056396,
+      "action_value": 0.3991489112377167,
+      "delta": 0.00044974684715270996,
+      "uncertainty": 0.1424809992313385,
+      "utility": -0.053418602883815766
+    },
+    {
+      "match": "19756.json",
+      "minute": 75,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.545130729675293,
+      "action_value": 0.5398576855659485,
+      "delta": -0.005273044109344482,
+      "uncertainty": 0.1253347396850586,
+      "utility": -0.05314020299911498
+    },
+    {
+      "match": "19756.json",
+      "minute": 80,
+      "action": "ACTION::HOME_TACTIC_FORM_442",
+      "noop_value": 0.5248996615409851,
+      "action_value": 0.5162216424942017,
+      "delta": -0.008678019046783447,
+      "uncertainty": 0.10703694820404053,
+      "utility": -0.05014095091819763
+    },
+    {
+      "match": "19756.json",
+      "minute": 85,
+      "action": "ACTION::HOME_SUB_ROLE_WINGER",
+      "noop_value": 0.5774296522140503,
+      "action_value": 0.5592848658561707,
+      "delta": -0.01814478635787964,
+      "uncertainty": 0.11773820221424103,
+      "utility": -0.06335315713286399
+    },
+    {
+      "match": "19811.json",
+      "minute": 45,
+      "action": "ACTION::HOME_SUB_ATTACK",
+      "noop_value": 0.6344999074935913,
+      "action_value": 0.6070215702056885,
+      "delta": -0.027478337287902832,
+      "uncertainty": 0.15160632133483887,
+      "utility": -0.08454054975509644
+    },
+    {
+      "match": "19811.json",
+      "minute": 50,
+      "action": "ACTION::HOME_SUB_NEUTRAL",
+      "noop_value": 0.5260120630264282,
+      "action_value": 0.5262100696563721,
+      "delta": 0.00019800662994384766,
+      "uncertainty": 0.13210994005203247,
+      "utility": -0.05004047238826752
+    },
+    {
+      "match": "19811.json",
+      "minute": 55,
+      "action": "ACTION::HOME_TACTIC_FORM_4141",
+      "noop_value": 0.5705716013908386,
+      "action_value": 0.5790343880653381,
+      "delta": 0.008462786674499512,
+      "uncertainty": 0.11819157749414444,
+      "utility": -0.036904265448451046
+    },
+    {
+      "match": "19811.json",
+      "minute": 60,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.5751399397850037,
+      "action_value": 0.5817880034446716,
+      "delta": 0.006648063659667969,
+      "uncertainty": 0.1866057962179184,
+      "utility": -0.06266396501660347
+    },
+    {
+      "match": "19811.json",
+      "minute": 65,
+      "action": "ACTION::HOME_SUB_ATTACK",
+      "noop_value": 0.5338445901870728,
+      "action_value": 0.531470000743866,
+      "delta": -0.002374589443206787,
+      "uncertainty": 0.15187695622444153,
+      "utility": -0.059531524121761326
+    },
+    {
+      "match": "19811.json",
+      "minute": 70,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.38286280632019043,
+      "action_value": 0.3907144069671631,
+      "delta": 0.007851600646972656,
+      "uncertainty": 0.17923298478126526,
+      "utility": -0.05887994402647019
+    },
+    {
+      "match": "19811.json",
+      "minute": 75,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.4003290832042694,
+      "action_value": 0.4136592745780945,
+      "delta": 0.013330191373825073,
+      "uncertainty": 0.11184432357549667,
+      "utility": -0.02981532187759876
+    },
+    {
+      "match": "19811.json",
+      "minute": 80,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.43314623832702637,
+      "action_value": 0.46388572454452515,
+      "delta": 0.03073948621749878,
+      "uncertainty": 0.136947900056839,
+      "utility": -0.021192278802394864
+    },
+    {
+      "match": "19811.json",
+      "minute": 85,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.4755275249481201,
+      "action_value": 0.49310195446014404,
+      "delta": 0.017574429512023926,
+      "uncertainty": 0.1640646606683731,
+      "utility": -0.04384820172190666
+    },
+    {
+      "match": "2275073.json",
+      "minute": 45,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.5567502975463867,
+      "action_value": 0.5251469612121582,
+      "delta": -0.031603336334228516,
+      "uncertainty": 0.1086176335811615,
+      "utility": -0.07361950808763504
+    },
+    {
+      "match": "2275073.json",
+      "minute": 50,
+      "action": "ACTION::HOME_SUB_NEUTRAL",
+      "noop_value": 0.5420258045196533,
+      "action_value": 0.553983211517334,
+      "delta": 0.011957406997680664,
+      "uncertainty": 0.10377844423055649,
+      "utility": -0.0283650484830141
+    },
+    {
+      "match": "2275073.json",
+      "minute": 55,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.3623083531856537,
+      "action_value": 0.3455851972103119,
+      "delta": -0.016723155975341797,
+      "uncertainty": 0.13905857503414154,
+      "utility": -0.06939365723729134
+    },
+    {
+      "match": "2275073.json",
+      "minute": 60,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.5396019816398621,
+      "action_value": 0.5393564105033875,
+      "delta": -0.0002455711364746094,
+      "uncertainty": 0.13478390872478485,
+      "utility": -0.05141993919014931
+    },
+    {
+      "match": "2275073.json",
+      "minute": 65,
+      "action": "ACTION::HOME_SUB_ATTACK",
+      "noop_value": 0.5232375264167786,
+      "action_value": 0.5156726241111755,
+      "delta": -0.007564902305603027,
+      "uncertainty": 0.09643295407295227,
+      "utility": -0.04531643623113632
+    },
+    {
+      "match": "2275073.json",
+      "minute": 70,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.5563719272613525,
+      "action_value": 0.5412582159042358,
+      "delta": -0.0151137113571167,
+      "uncertainty": 0.1143726259469986,
+      "utility": -0.0591441304385662
+    },
+    {
+      "match": "2275073.json",
+      "minute": 75,
+      "action": "ACTION::HOME_SUB_ROLE_GOALKEEPER",
+      "noop_value": 0.5073145031929016,
+      "action_value": 0.4840811789035797,
+      "delta": -0.0232333242893219,
+      "uncertainty": 0.12094537913799286,
+      "utility": -0.06956420698761939
+    },
+    {
+      "match": "2275073.json",
+      "minute": 80,
+      "action": "ACTION::HOME_TACTIC_FORM_41212",
+      "noop_value": 0.46122342348098755,
+      "action_value": 0.44382399320602417,
+      "delta": -0.01739943027496338,
+      "uncertainty": 0.1298311948776245,
+      "utility": -0.06684034848213197
+    },
+    {
+      "match": "2275073.json",
+      "minute": 85,
+      "action": "ACTION::HOME_TACTIC_FORM_442",
+      "noop_value": 0.34765148162841797,
+      "action_value": 0.3342551589012146,
+      "delta": -0.01339632272720337,
+      "uncertainty": 0.10995326936244965,
+      "utility": -0.05587996700406074
+    }
+  ]
+}

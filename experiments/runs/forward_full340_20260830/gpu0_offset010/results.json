@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "offset": 10,
+    "num_requested": 165,
+    "num_completed": 1,
+    "complete": false,
+    "no_intervention_mae_pp": 17.374090312242675,
+    "mean_generated_frame_count": 2192.0
+  },
+  "matches": [
+    {
+      "match": "3879856.json",
+      "real_home_possession": 0.34839650145772594,
+      "no_intervention_home_possession": 0.5221374045801527,
+      "abs_error_pp": 17.374090312242675,
+      "generated_frame_count": 2192,
+      "real_passes": 498,
+      "sim_passes": 653,
+      "passes_abs_error": 155,
+      "real_shots": 15,
+      "sim_shots": 1,
+      "shots_abs_error": 14,
+      "real_dribbles": 14,
+      "sim_dribbles": 2,
+      "dribbles_abs_error": 12,
+      "real_total_events": 1690,
+      "sim_total_events": 2192,
+      "total_events_abs_error": 502
+    }
+  ]
+}

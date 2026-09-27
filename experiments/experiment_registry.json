@@ -1,0 +1,110 @@
+{
+  "rules": {
+    "allowed_physical_gpus": [0, 1, 2],
+    "cuda_process_memory_fraction": 0.84,
+    "memory_warning_mib": 9500,
+    "checkpoint": "impactful_possession_pipeline/runs/phase1_v3_value_head_finetune_w64/best_forward_simulator.pt",
+    "test_split": "checkpoint-persisted test_files only",
+    "result_policy": "Measured outputs are immutable evidence; paper targets are comparison fields only."
+  },
+  "experiments": [
+    {
+      "id": "E01",
+      "name": "forward_model_aggregate_mad",
+      "paper_n": 450,
+      "available_leakage_safe_n": 340,
+      "status": "historical_reproduction_exact_modern_validation_partial",
+      "output": "paper_reproduction/runs/e01_historical_ffm/results.json",
+      "recompute": "paper_reproduction.recompute_historical_e01",
+      "modern_validation": "paper_reproduction/runs/table1_full340_20260830",
+      "shards": [
+        "paper_reproduction/runs/table1_full340_20260830/gpu0_offset000/results.json",
+        "paper_reproduction/runs/table1_full340_20260830/gpu1_offset170/results.json"
+      ],
+      "metrics": ["possession_mae_pp", "passes_mae", "shots_mae", "dribbles_mae", "total_events_mae"],
+      "note": "Independent recomputation from the exact historical sorted [70:520] selection of 450/600 raw result directories reproduces all five manuscript values at printed precision. A separate modern checkpoint-persisted leakage-safe validation has 12 reusable completed rows but is no longer the primary E01 evidence."
+    },
+    {
+      "id": "E02",
+      "name": "token_augmentation_ablation",
+      "paper_variants": ["no_augmentation", "untyped", "typed"],
+      "paper_n": 600,
+      "status": "historical_reproduction_recovered",
+      "output": "paper_reproduction/runs/e02_token_augmentation/results.json",
+      "readme": "paper_reproduction/runs/e02_token_augmentation/README.md",
+      "audit": "paper_reproduction/historical_artifact_audit.json",
+      "note": "All three distinct checkpoints have 600 result directories with exactly identical match-ID sets. Typed augmentation is best on all four recovered metrics. These are recovered historical outputs, not a clean rerun performed by the new harness."
+    },
+    {
+      "id": "E03",
+      "name": "spatial_grid_ablation",
+      "paper_variants": ["4x6", "8x12", "16x24"],
+      "status": "historical_reproduction_recovered",
+      "output": "paper_reproduction/runs/e03_spatial_grid/results.json",
+      "readme": "paper_reproduction/runs/e03_spatial_grid/README.md",
+      "audit": "paper_reproduction/historical_artifact_audit.json",
+      "note": "All three distinct checkpoints have 600 result directories with exactly identical normalized match-ID sets. Output matrix shapes prove the 4x6, 8x12, and 16x24 mapping. The coarse aggregate used 595/600 because its historical summary script skipped five directories."
+    },
+    {
+      "id": "E04",
+      "name": "repeat_simulation_stability",
+      "paper_n": 600,
+      "runs_per_match": 10,
+      "runner": "paper_reproduction.run_repeat_stability_shard",
+      "status": "historical_reproduction_exact",
+      "output": "paper_reproduction/runs/e04_repeat_stability/results.json",
+      "parser": "paper_reproduction.parse_historical_e04",
+      "note": "Complete historical stdout contains 600 matches and 6000 individual runs. Parsed means reproduce 13.87 sample variance and 12.02 pp error exactly at manuscript precision. The original script-declared model filename is currently missing, so clean bit-for-bit rerun provenance is incomplete; the new resumable runner targets the available 340-match checkpoint holdout and now reports both sample and population variance."
+    },
+    {
+      "id": "E05",
+      "name": "policy_comparison",
+      "paper_n": 200,
+      "holdout": "paper_reproduction/holdout_table2_200.json",
+      "variants": [
+        {"name": "random", "runner": "impactful_possession_pipeline.evaluate_baseline_policy_pipeline"},
+        {"name": "classic_markov", "runner": "impactful_possession_pipeline.evaluate_baseline_policy_pipeline", "dependency": "E05_classic_markov_table"},
+        {"name": "plain_mcts", "runner": "impactful_possession_pipeline.evaluate_mcts_pipeline", "uniform_prior_weight": 1.0, "num_simulations": 10},
+        {"name": "priors_mcts", "runner": "impactful_possession_pipeline.evaluate_mcts_pipeline", "uniform_prior_weight": 0.05, "num_simulations": 10}
+      ],
+      "status": "controlled_capped_mcts_running",
+      "markov_table": "paper_reproduction/runs/E05_classic_markov_table_20260830/results.json",
+      "controlled_run": "paper_reproduction/runs/e05_controlled_200",
+      "capped_controlled_run": "paper_reproduction/runs/e05_capped_200",
+      "benchmark": "paper_reproduction/runs/benchmark_e05_capped_1match/priors_mcts/results.json",
+      "historical_audit": "paper_reproduction/runs/e05_historical_policy_audit/results.json",
+      "note": "Surviving historical logs were strictly parsed but do not reproduce Table 2 under raw possession gain or absolute-error reduction. They use inconsistent sample construction and are counter-evidence only. The prior uncapped controlled jobs remain stopped. Clean 250-token-capped plain and priors MCTS runs are active on physical GPUs 1 and 0 respectively; a completed one-match priors benchmark took 1303.59 s and measured -4.65 pp."
+    },
+    {
+      "id": "E06",
+      "name": "intervention_frequency",
+      "step_minutes": [1, 5, 10],
+      "paper_rollout_tokens": [30, 150, 300],
+      "status": "runner_available_queue_pending",
+      "historical_audit": "paper_reproduction/runs/e06_e08_historical_audit/results.json",
+      "note": "Historical one- and five-minute traces exist, but no authenticated ten-minute run. Exact sweep remains pending."
+    },
+    {
+      "id": "E07",
+      "name": "search_budget",
+      "num_simulations": [1, 5, 10, 30, 50],
+      "status": "runner_available_queue_pending",
+      "historical_audit": "paper_reproduction/runs/e06_e08_historical_audit/results.json",
+      "note": "Ambiguous historical filenames suggest settings 1/3/5/7 rather than the required 1/5/10/30/50; exact sweep remains pending."
+    },
+    {
+      "id": "E08",
+      "name": "lookahead_horizon",
+      "rollout_tokens": [0, 40, 200, 400],
+      "status": "runner_available_queue_pending",
+      "historical_audit": "paper_reproduction/runs/e06_e08_historical_audit/results.json",
+      "note": "Historical suffixes do not authenticate the required token horizons; exact sweep remains pending."
+    },
+    {
+      "id": "E09",
+      "name": "match_context_analysis",
+      "possession_bins": ["<45", "45-55", ">55"],
+      "status": "derived_after_E05"
+    }
+  ]
+}

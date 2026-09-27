@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.pt
+*.pth
+*.ckpt
+*.pid
+*.memlog
+*.log
+data/raw/
+results.local/

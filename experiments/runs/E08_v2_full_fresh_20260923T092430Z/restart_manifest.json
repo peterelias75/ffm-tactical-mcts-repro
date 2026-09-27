@@ -1,0 +1,18 @@
+{
+  "scope": "Entire second E08 version only",
+  "lookahead_tokens": [
+    0,
+    40,
+    200,
+    400
+  ],
+  "matches_per_condition": 50,
+  "step_minutes": 1,
+  "num_simulations": 5,
+  "uniform_prior_weight": 1.0,
+  "seed": 20260727,
+  "resume": false,
+  "previous_results_preserved": "/home/peter/fb-proj/paper_reproduction/runs/E08_plain_mcts_step1_sim5_n50",
+  "status": "prepared_blocked_dataset_mount",
+  "noop_reference": "Existing completed E05 cache, as in original second E08 version"
+}

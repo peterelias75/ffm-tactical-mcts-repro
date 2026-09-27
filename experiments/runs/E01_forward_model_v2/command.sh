@@ -1,0 +1,1 @@
+env CUDA_VISIBLE_DEVICES=0 /home/peter/miniconda3/envs/fb-env/bin/python -u -m impactful_possession_pipeline.evaluate_pipeline --checkpoint /home/peter/fb-proj/impactful_possession_pipeline/runs/phase1_v3_value_head_finetune_w64/best_forward_simulator.pt --max-matches 15 --seed 42 --out-json /home/peter/fb-proj/paper_reproduction/runs/E01_forward_model_v2/results.json

@@ -1,0 +1,21 @@
+{
+  "source": "user-supplied Materials and Methods / Results excerpt",
+  "claims": [
+    {"id": "E01", "metric": "FFM aggregate MAD", "n_matches": 450, "possession_mae_pp": 11.95, "passes_mae": 71.27, "shots_mae": 4.34, "dribbles_mae": 5.52, "total_events_mae": 11.04},
+    {"id": "E04", "metric": "repeat simulation stability", "n_matches": 600, "runs_per_match": 10, "mean_within_match_variance": 13.87, "possession_mae_pp": 12.02},
+    {"id": "E05", "policy": "random", "n_matches": 200, "mean_gain_pp": 1.02, "pct_improved": 32.55, "gain_when_improved_pp": 3.12},
+    {"id": "E05", "policy": "classic_markov", "n_matches": 200, "mean_gain_pp": 1.66, "pct_improved": 41.20, "gain_when_improved_pp": 4.03},
+    {"id": "E05", "policy": "plain_mcts", "n_matches": 200, "mean_gain_pp": 3.10, "pct_improved": 52.00, "gain_when_improved_pp": 6.00},
+    {"id": "E05", "policy": "priors_mcts", "n_matches": 200, "mean_gain_pp": 4.12, "pct_improved": 61.00, "gain_when_improved_pp": 9.43},
+    {"id": "E06", "metric": "best intervention interval", "interval_minutes": 5, "pct_improved": 72.0},
+    {"id": "E07", "iterations": 1, "pct_improved": 38.0, "latency_seconds": 3.0},
+    {"id": "E07", "iterations": 50, "pct_improved": 82.0, "latency_seconds": 180.0},
+    {"id": "E08", "lookahead_tokens": 0, "pct_improved": 30.0, "gain_when_improved_pp": 2.67},
+    {"id": "E08", "lookahead_tokens": 200, "pct_improved": 82.0, "gain_when_improved_pp": 9.87},
+    {"id": "E08", "lookahead_tokens": 400, "pct_improved": 67.0, "gain_when_improved_pp": 6.22},
+    {"id": "E09", "possession_bucket": "lt45", "mean_advantage_pp": 8.75},
+    {"id": "E09", "possession_bucket": "45to55", "mean_advantage_pp": 6.68},
+    {"id": "E09", "possession_bucket": "gt55", "mean_advantage_pp": 2.50}
+  ]
+}
+

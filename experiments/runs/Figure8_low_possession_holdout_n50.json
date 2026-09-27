@@ -1,0 +1,21 @@
+{
+  "match_ids": [
+    "3753993.json", "3879817.json", "3890326.json", "3857281.json",
+    "3838004.json", "3879856.json", "3890532.json", "69246.json",
+    "3890340.json", "3939983.json", "19756.json", "3879584.json",
+    "3879689.json", "3879574.json", "3754031.json", "3825829.json",
+    "3878596.json", "3879759.json", "3857275.json", "69235.json",
+    "69286.json", "266420.json", "69195.json", "3893813.json",
+    "19776.json", "3878597.json", "3890520.json", "3764234.json",
+    "3900604.json", "70280.json", "3878551.json", "3825833.json",
+    "3754094.json", "266310.json", "3938645.json", "3890403.json",
+    "3901188.json", "3879834.json", "3775659.json", "3900568.json",
+    "3825622.json", "303707.json", "266516.json", "3879688.json",
+    "3754075.json", "3749310.json", "3754067.json", "3754110.json",
+    "2275030.json", "3878603.json"
+  ],
+  "selection": "first 50 matches with real second-half home possession < 0.45",
+  "source": "paper_reproduction/runs/e05_capped_200/plain_mcts/results.json",
+  "source_holdout_size": 200,
+  "eligible_low_possession_matches": 66
+}

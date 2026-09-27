@@ -1,0 +1,297 @@
+{
+  "scope": [
+    "E06 intervention interval",
+    "E07 search budget",
+    "E08 lookahead horizon"
+  ],
+  "logs": {
+    "priors_1.txt": {
+      "path": "gpt_medium/priors_1.txt",
+      "bytes": 1565608,
+      "sha256": "85fdb35ea9ebb7cb948267dc0f7098a168d5b246a79fca2a0d303d889d68a8d2",
+      "num_rows": 3433,
+      "num_unique_matches": 3433,
+      "first_match_decision_minutes": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 200,
+          "mean_gain_pp": -0.18460000000000013,
+          "pct_improved": 46.5,
+          "mean_gain_when_improved_pp": 2.4761290322580645
+        },
+        "absolute_error_reduction": {
+          "n": 200,
+          "mean_gain_pp": 0.19040000000000049,
+          "pct_improved": 53.0,
+          "mean_gain_when_improved_pp": 2.3994339622641516
+        }
+      }
+    },
+    "priors_1_minute_sample.txt": {
+      "path": "gpt_medium/priors_1_minute_sample.txt",
+      "bytes": 93707,
+      "sha256": "d3b4ee68ab6d2904edd38381619a3e2f5e10db403cede273019446cbff2d78bb",
+      "num_rows": 69,
+      "num_unique_matches": 69,
+      "first_match_decision_minutes": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 69,
+          "mean_gain_pp": 0.34913043478260863,
+          "pct_improved": 49.275362318840585,
+          "mean_gain_when_improved_pp": 2.820588235294118
+        },
+        "absolute_error_reduction": {
+          "n": 69,
+          "mean_gain_pp": 0.29637681159420326,
+          "pct_improved": 55.072463768115945,
+          "mean_gain_when_improved_pp": 2.39421052631579
+        }
+      }
+    },
+    "priors_3_250.txt": {
+      "path": "gpt_medium/priors_3_250.txt",
+      "bytes": 31514,
+      "sha256": "ccf1ef82b089d678eaaf8504f744ff95cee4f9e8b7c13926d0884fa5503bdbf3",
+      "num_rows": 69,
+      "num_unique_matches": 69,
+      "first_match_decision_minutes": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 69,
+          "mean_gain_pp": 0.32405797101449285,
+          "pct_improved": 60.86956521739131,
+          "mean_gain_when_improved_pp": 2.257857142857143
+        },
+        "absolute_error_reduction": {
+          "n": 69,
+          "mean_gain_pp": -0.5994202898550728,
+          "pct_improved": 37.68115942028986,
+          "mean_gain_when_improved_pp": 1.9953846153846153
+        }
+      }
+    },
+    "priors_5.txt": {
+      "path": "gpt_medium/priors_5.txt",
+      "bytes": 254349,
+      "sha256": "c44cec9e937c43c265446ba45cccf56af04aaa7292c4f5de707e36c659ef775c",
+      "num_rows": 559,
+      "num_unique_matches": 559,
+      "first_match_decision_minutes": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 200,
+          "mean_gain_pp": 0.20949999999999977,
+          "pct_improved": 54.50000000000001,
+          "mean_gain_when_improved_pp": 2.511559633027523
+        },
+        "absolute_error_reduction": {
+          "n": 200,
+          "mean_gain_pp": 0.17080000000000006,
+          "pct_improved": 55.50000000000001,
+          "mean_gain_when_improved_pp": 2.27990990990991
+        }
+      }
+    },
+    "priors_7_250.txt": {
+      "path": "gpt_medium/priors_7_250.txt",
+      "bytes": 16401,
+      "sha256": "0faca4a1ad959bf0146ab4e887cfa759c2912048ba0a240ecd7f86b655ad3232",
+      "num_rows": 36,
+      "num_unique_matches": 36,
+      "first_match_decision_minutes": [
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 36,
+          "mean_gain_pp": -0.5455555555555563,
+          "pct_improved": 50.0,
+          "mean_gain_when_improved_pp": 1.7544444444444436
+        },
+        "absolute_error_reduction": {
+          "n": 36,
+          "mean_gain_pp": 0.5994444444444452,
+          "pct_improved": 58.333333333333336,
+          "mean_gain_when_improved_pp": 2.2714285714285714
+        }
+      }
+    },
+    "priors_minute_sample_250.txt": {
+      "path": "gpt_medium/priors_minute_sample_250.txt",
+      "bytes": 93669,
+      "sha256": "55bf35ba7e7f1fe1b6301ba6395ad2321bf91ade3c4497c79e24ec6a4e993010",
+      "num_rows": 69,
+      "num_unique_matches": 69,
+      "first_match_decision_minutes": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "first_200": {
+        "raw_possession_gain": {
+          "n": 69,
+          "mean_gain_pp": -0.003768115942028545,
+          "pct_improved": 53.62318840579711,
+          "mean_gain_when_improved_pp": 2.194324324324326
+        },
+        "absolute_error_reduction": {
+          "n": 69,
+          "mean_gain_pp": -0.2936231884057971,
+          "pct_improved": 43.47826086956522,
+          "mean_gain_when_improved_pp": 2.0653333333333346
+        }
+      }
+    },
+    "priors_3_500.txt": {
+      "path": "gpt_medium/priors_3_500.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "num_rows": 0,
+      "num_unique_matches": 0,
+      "first_match_decision_minutes": [],
+      "first_200": null
+    },
+    "priors_real_3_125.txt": {
+      "path": "gpt_medium/priors_real_3_125.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "num_rows": 0,
+      "num_unique_matches": 0,
+      "first_match_decision_minutes": [],
+      "first_200": null
+    }
+  },
+  "mapping_assessment": {
+    "E06": "The two '*minute_sample*' logs visibly make decisions at every minute; ordinary logs use five-minute steps. No clearly identified ten-minute historical log exists.",
+    "E07": "Filenames suggest priors search counts 1, 3, 5, and 7, but the paper requires 1, 5, 10, 30, and 50. Current source was edited in place and cannot authenticate every historical setting.",
+    "E08": "Filenames expose 125, 250, and 500-like suffixes, while the paper requires 0, 40, 200, and 400 tokens. No exact trustworthy mapping is available."
+  },
+  "conclusion": "These logs are useful historical traces but cannot reproduce E06-E08 as claimed. Exact controlled sweeps with explicit configs and a common pinned holdout remain required."
+}

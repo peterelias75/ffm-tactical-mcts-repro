@@ -1,0 +1,25 @@
+{
+  "match_ids": [
+    "3857281.json",
+    "3879856.json",
+    "69246.json",
+    "3879584.json",
+    "3754031.json",
+    "3878596.json",
+    "3879759.json",
+    "3753993.json",
+    "3879817.json",
+    "3890326.json",
+    "3838004.json",
+    "3890532.json",
+    "3890340.json",
+    "3939983.json",
+    "19756.json",
+    "3879689.json",
+    "3879574.json",
+    "3825829.json",
+    "3857275.json"
+  ],
+  "selection": "real second-half home possession < 0.45",
+  "source": "Figure7_plain_mcts_step1_sim5_lookahead200_n50"
+}

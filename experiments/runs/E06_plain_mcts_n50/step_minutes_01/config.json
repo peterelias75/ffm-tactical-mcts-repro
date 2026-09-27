@@ -1,0 +1,30 @@
+{
+  "cli_args": [
+    "--checkpoint",
+    "/home/peter/fb-proj/impactful_possession_pipeline/runs/phase1_v3_value_head_finetune_w64/best_forward_simulator.pt",
+    "--holdout-json",
+    "/home/peter/fb-proj/paper_reproduction/holdout_table2_200.json",
+    "--cut-minute",
+    "45",
+    "--step-minutes",
+    "1",
+    "--rollout-lookahead-tokens",
+    "30",
+    "--seed",
+    "20260727",
+    "--resume",
+    "--out-json",
+    "paper_reproduction/runs/E06_plain_mcts_n50/step_minutes_01/results.json",
+    "--noop-cache-json",
+    "paper_reproduction/runs/e05_capped_200/plain_mcts/results.json",
+    "--max-matches",
+    "50"
+  ],
+  "cuda_process_memory_fraction": 0.84,
+  "expected_matches": 50,
+  "label": "step_minutes_01",
+  "memory_warning_mib": 9500,
+  "module": "impactful_possession_pipeline.evaluate_mcts_pipeline",
+  "out_json": "paper_reproduction/runs/E06_plain_mcts_n50/step_minutes_01/results.json",
+  "physical_gpu": 0
+}

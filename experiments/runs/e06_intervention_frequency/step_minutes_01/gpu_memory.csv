@@ -1,0 +1,2 @@
+timestamp_utc,gpu_index,memory_used_mib,memory_total_mib,utilization_pct,temperature_c,status
+2026-08-31T13:00:09Z,2, 0, 11264, 0, 43,ok

@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-08-30",
+  "scope": ["E02 token augmentation ablation", "E03 spatial grid ablation"],
+  "e02": {
+    "no_augmentation": {
+      "model": "gpt_dist/gpt_no_subs/football-finetuned-gpt2-no-subs/model.safetensors",
+      "bytes": 491331016,
+      "checkpoint_steps": [13500, 14000],
+      "training_script": "gpt_dist/gpt_no_subs/gpt_no_subs.py"
+    },
+    "untyped": {
+      "model": "gpt_dist/gpt_untagged_subs/football-finetuned-gpt2-untagged/model.safetensors",
+      "bytes": 491343304,
+      "checkpoint_steps": [13500, 14000],
+      "training_script": "gpt_dist/gpt_untagged_subs/gpt_untagged.py",
+      "warning": "The checked-in training script sets FINETUNED_DIR to ./football-finetuned-gpt2-tagged, but the actual artifact directory is football-finetuned-gpt2-untagged. A clean rerun must correct and record this path before training."
+    },
+    "typed": {
+      "model": "gpt_dist/gpt_tagged_subs/football-finetuned-gpt2-tagged/model.safetensors",
+      "bytes": 491367880,
+      "checkpoint_steps": [13500, 14000],
+      "training_script": "gpt_dist/gpt_tagged_subs/gpt_tagged.py"
+    },
+    "result_package": "paper_reproduction/runs/e02_token_augmentation/results.json",
+    "match_set_verification": "Each variant has 600 result directories; exact normalized directory-name comparison found zero mismatches across variants.",
+    "conclusion": "The recovered historical evaluation supports the qualitative manuscript claim: typed augmentation has the lowest recovered MAD on possession, shots, dribbles, and the available category-averaged total-event proxy."
+  },
+  "e03": {
+    "artifact_families": [
+      "gpt_medium/football-finetuned-gpt2-m-tagged-small-grid",
+      "gpt_medium/football-finetuned-gpt2-m-tagged",
+      "gpt_medium/football-finetuned-gpt2-m-tagged-fine-grid"
+    ],
+    "additional_partial_family": "gpt_medium/football-finetuned-gpt2-m-tagged-fine-grid-small",
+    "result_package": "paper_reproduction/runs/e03_spatial_grid/results.json",
+    "match_set_verification": "Each variant has 600 result directories; exact normalized match-ID comparison found zero mismatches across variants.",
+    "warnings": [
+      "gpt_medium/gpt_fine_grid.py defines X_BINS=4 and Y_BINS=6 while its comments call the grid finer and its output name says small-grid.",
+      "gpt_medium/stats_tagged.py uses GRID_ROWS=8 and GRID_COLS=12.",
+      "Directory names alone do not prove which artifact is 4x6, 8x12, or 16x24. The recovered output matrix shapes provide the mapping: 6x4, 8x12, and 24x16 respectively.",
+      "The coarse historical summary uses 595/600 results because its saved aggregation script slices off five sorted directories."
+    ],
+    "conclusion": "The recovered historical evaluation supports the manuscript trend: zone MAD is 40.13, 11.26, and 3.07 from coarse to fine, and the other reported spatial/event metrics improve monotonically. A clean rerun harness is still needed for exact source-level restoration because the one-off scripts were edited in place."
+  }
+}

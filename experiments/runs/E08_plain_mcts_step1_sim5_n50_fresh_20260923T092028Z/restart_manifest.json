@@ -1,0 +1,13 @@
+{
+  "conditions": [
+    200,
+    400
+  ],
+  "matches_per_condition": 50,
+  "start_from_match": 1,
+  "previous_results_preserved": "/home/peter/fb-proj/paper_reproduction/runs/E08_plain_mcts_step1_sim5_n50",
+  "status": "blocked_dataset_mount_unavailable",
+  "step_minutes": 1,
+  "num_simulations": 5,
+  "seed": 20260727
+}

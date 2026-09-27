@@ -1,0 +1,90 @@
+{
+  "experiment_id": "E02",
+  "paper_figure": "Figure 3",
+  "description": "Token-augmentation ablation: DistilGPT-2 (~82M params) trained with cross-entropy, three tokenization schemes for substitution/tactical-shift events.",
+  "metric_definitions": {
+    "possession": "\"Ball Possession MAD%\" from mad_summary.py: mean absolute difference between GT and GEN home-possession share (ball-touch event share), in percentage points. Directly analogous to paper's possession_mae_pp.",
+    "shots": "Average of the Home and Away 'shot' event-count MAD values reported under 'Home/Away Event MAD for Pass, Shot, Dribble' in mad_summary.txt.",
+    "dribbles": "Average of the Home and Away 'dribble' event-count MAD values, same source as shots.",
+    "total_events": "mad_summary.py's 'Total Event MAD' field. IMPORTANT CAVEAT: this is the mean of per-event-type MAD across all ~33 distinct StatsBomb event categories (home+away combined), NOT the MAD of the aggregate total-event-count per match. The per-match CSVs (events.csv) contain no literal 'total events' row, so this category-averaged MAD is the closest available proxy to the paper's total_events_mae and should not be treated as numerically equivalent to it.",
+    "total_position_mad": "mad_summary.py's 'Total Position MAD' - MAD averaged over player-position labels. Not one of the four requested metrics but included for completeness/cross-checking.",
+    "total_zone_mad_8x12": "mad_summary.py's 'Total Zone MAD' - mean absolute diff over the 8x12 pitch-zone event-count grid. Included for completeness; the primary spatial-grid ablation is E03."
+  },
+  "variants": {
+    "no_aug": {
+      "paper_label": "No-Aug",
+      "gpt_dist_subdir": "gpt_no_subs",
+      "description": "Substitution and tactical-shift events are dropped entirely from the training/eval token stream (event_to_str returns None and events are filtered out before tokenization).",
+      "source": {
+        "mad_summary_txt": "/home/peter/fb-proj/gpt_dist/gpt_no_subs/mad_summary.txt",
+        "mad_summary_py": "/home/peter/fb-proj/gpt_dist/gpt_no_subs/mad_summary.py",
+        "training_script": "/home/peter/fb-proj/gpt_dist/gpt_no_subs/gpt_no_subs.py",
+        "model_checkpoint": "/home/peter/fb-proj/gpt_dist/gpt_no_subs/football-finetuned-gpt2-no-subs/model.safetensors",
+        "model_checkpoint_md5": "95cbcb049648088400682d0bfd13594f",
+        "results_dir": "/home/peter/fb-proj/gpt_dist/gpt_no_subs/results"
+      },
+      "n_matches": 600,
+      "possession_mad_pct": 13.48,
+      "shots_mad": {"home": 10.73, "away": 3.95, "avg": 7.34},
+      "dribbles_mad": {"home": 4.47, "away": 6.12, "avg": 5.295},
+      "total_events_mad": 10.10,
+      "total_position_mad": 22.70,
+      "total_zone_mad_8x12": 8.76
+    },
+    "untyped_aug": {
+      "paper_label": "Untyped-Aug",
+      "gpt_dist_subdir": "gpt_untagged_subs",
+      "description": "Substitution/tactical-shift tokens are present (e.g. 'sub - home', 'tactical shift - away') but carry no attack/neutral/defend label.",
+      "source": {
+        "mad_summary_txt": "/home/peter/fb-proj/gpt_dist/gpt_untagged_subs/mad_summary.txt",
+        "mad_summary_py": "/home/peter/fb-proj/gpt_dist/gpt_untagged_subs/mad_summary.py",
+        "training_script": "/home/peter/fb-proj/gpt_dist/gpt_untagged_subs/gpt_untagged.py",
+        "model_checkpoint": "/home/peter/fb-proj/gpt_dist/gpt_untagged_subs/football-finetuned-gpt2-untagged/model.safetensors",
+        "model_checkpoint_md5": "eff2a31539c12d20f05261be7c0041a8",
+        "results_dir": "/home/peter/fb-proj/gpt_dist/gpt_untagged_subs/results"
+      },
+      "n_matches": 600,
+      "possession_mad_pct": 13.26,
+      "shots_mad": {"home": 5.08, "away": 4.64, "avg": 4.86},
+      "dribbles_mad": {"home": 5.50, "away": 4.62, "avg": 5.06},
+      "total_events_mad": 10.60,
+      "total_position_mad": 23.08,
+      "total_zone_mad_8x12": 8.87
+    },
+    "typed_aug": {
+      "paper_label": "Typed-Aug",
+      "gpt_dist_subdir": "gpt_tagged_subs",
+      "description": "Substitution/tactical-shift tokens are labeled 'attacking'/'defending'/'neutral' based on incoming-vs-outgoing player role or formation shift (see token_for_substitution / token_for_tactical_shift in gpt_tagged.py).",
+      "source": {
+        "mad_summary_txt": "/home/peter/fb-proj/gpt_dist/gpt_tagged_subs/mad_summary.txt",
+        "mad_summary_py": "/home/peter/fb-proj/gpt_dist/gpt_tagged_subs/mad_summary.py",
+        "training_script": "/home/peter/fb-proj/gpt_dist/gpt_tagged_subs/gpt_tagged.py",
+        "model_checkpoint": "/home/peter/fb-proj/gpt_dist/gpt_tagged_subs/football-finetuned-gpt2-tagged/model.safetensors",
+        "model_checkpoint_md5": "7e5362fc0a96ab90d113469b8076b96e",
+        "results_dir": "/home/peter/fb-proj/gpt_dist/gpt_tagged_subs/results"
+      },
+      "n_matches": 600,
+      "possession_mad_pct": 12.85,
+      "shots_mad": {"home": 4.64, "away": 4.08, "avg": 4.36},
+      "dribbles_mad": {"home": 5.37, "away": 4.30, "avg": 4.835},
+      "total_events_mad": 9.65,
+      "total_position_mad": 25.39,
+      "total_zone_mad_8x12": 9.61
+    }
+  },
+  "verification": {
+    "distinct_models": "Confirmed genuinely separate trained checkpoints: model.safetensors MD5 differs across all three variants (see model_checkpoint_md5 fields), each 3.3GB. Training scripts (gpt_no_subs.py / gpt_untagged.py / gpt_tagged.py) differ in exactly the expected way: no_subs filters out substitution/tactical-shift events before tokenization; untagged emits generic f'sub - {team}' / f'tactical shift - {team}' tokens; tagged emits tokens computed via token_for_substitution/token_for_tactical_shift that compare incoming vs outgoing player role (defender=1/midfielder=2/attacker=3) or formation attack-defense balance and label the token 'attacking'/'defending'/'neutral' accordingly.",
+    "eval_set_size": "All three variants evaluated on the same n=600 matches (600 '*_results' directories under each variant's results/)."
+  },
+  "claim_check": {
+    "paper_claim": "Typed-Aug gives the best (lowest) MAD across all four metrics: possession, shots, dribbles, total_events.",
+    "observed_ordering": {
+      "possession_mad_pct": {"no_aug": 13.48, "untyped_aug": 13.26, "typed_aug": 12.85, "best": "typed_aug"},
+      "shots_mad_avg": {"no_aug": 7.34, "untyped_aug": 4.86, "typed_aug": 4.36, "best": "typed_aug"},
+      "dribbles_mad_avg": {"no_aug": 5.295, "untyped_aug": 5.06, "typed_aug": 4.835, "best": "typed_aug"},
+      "total_events_mad": {"no_aug": 10.10, "untyped_aug": 10.60, "typed_aug": 9.65, "best": "typed_aug"}
+    },
+    "supported": true,
+    "notes": "typed_aug (Typed-Aug) is strictly the lowest-MAD variant on all four metrics, matching the paper's qualitative finding. The ordering between no_aug and untyped_aug is NOT monotonic across metrics (untyped_aug beats no_aug on possession/shots/dribbles but is worse than no_aug on total_events_mad and total_position_mad), so the paper's implicit 'more augmentation info = better' gradient only holds cleanly at the No-Aug -> Typed-Aug extremes, not necessarily through the Untyped-Aug midpoint on every metric."
+  }
+}
