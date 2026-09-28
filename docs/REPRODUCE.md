@@ -1,4 +1,6 @@
-# Fast reproduction and validation
+# Reproduction and validation strategy
+
+Validation has three levels because checking code and saved evidence should not require repeating every multi-hour GPU sweep: inspect committed artifacts, test the full path on one match, and only then launch a complete condition.
 
 ## Environment
 
@@ -9,7 +11,7 @@ pip install -r requirements.txt
 export PYTHONPATH="$PWD/src"
 ```
 
-Set these paths for your installation:
+Provide local data and checkpoint paths:
 
 ```bash
 export FFM_CHECKPOINT=/path/to/best_forward_simulator.pt
@@ -17,16 +19,16 @@ export STATSBOMB_EVENTS=/path/to/statsbomb/open-data/data/events
 export STATSBOMB_LINEUPS=/path/to/statsbomb/open-data/data/lineups
 ```
 
-## Seconds: static validation
+## Level 1 — seconds: artifact validation
 
 ```bash
 python -m py_compile src/impactful_possession_pipeline/*.py experiments/*.py
 python scripts/summarize_results.py
 ```
 
-The summary command reads committed JSON only and does not require a GPU.
+This verifies that source files compile and that the committed best-result JSON is present, parseable, complete, and equal to the headline values. It does not test model generation.
 
-## Minutes: one-match smoke test
+## Level 2 — minutes: one-match smoke test
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -m impactful_possession_pipeline.evaluate_mcts_pipeline \
@@ -39,10 +41,11 @@ CUDA_VISIBLE_DEVICES=0 python -m impactful_possession_pipeline.evaluate_mcts_pip
   --out-json /tmp/ffm_smoke.json
 ```
 
-This checks loading, encoding, legal-action generation, rollout, MCTS selection,
-metric calculation, and incremental persistence. It is not a paper result.
+This checks checkpoint loading, encoding, legal actions, generation, MCTS selection, metrics, and persistence. It is intentionally cheap and is not a paper result.
 
-## Full best configuration
+## Level 3 — full best configuration
+
+This recreates the configuration selected sequentially by E06, E07, and E08. Holding non-target variables fixed matters: changing decision interval, simulations, and rollout length together would make the source of a gain unidentifiable.
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python -m impactful_possession_pipeline.evaluate_mcts_pipeline \
@@ -59,15 +62,19 @@ CUDA_VISIBLE_DEVICES=0 python -m impactful_possession_pipeline.evaluate_mcts_pip
 
 For E10, change only `--intervention-cooldown-minutes` to `5` or `10`.
 
-## Expected best-run target
+## Reading a result
 
-Small differences may occur across PyTorch/CUDA versions, but the committed run
-records the target aggregate: +2.34 pp mean paired possession gain, 64% matches
-improved, and +1.08 pp 90% bootstrap lower confidence bound.
+Check `summary.complete` before accepting aggregates. `mean_delta_pp` is MCTS possession minus paired no-action possession, multiplied by 100. Improvement rate counts strictly positive match deltas. The bootstrap lower confidence bound is a conservative uncertainty check, not external validation.
+
+The committed best-run target is +2.34 pp mean paired gain, 64% improved, and +1.08 pp 90% bootstrap LCB. Small numerical differences may occur across PyTorch/CUDA versions.
 
 ## Resume and memory safety
 
-- Always pass `--resume`; each completed match is saved immediately.
+- Pass `--resume`; each completed match is saved immediately.
 - Use one process per GPU.
 - The evaluator caps its CUDA allocator fraction.
-- Do not run two writers against the same output JSON.
+- Never run two writers against one output JSON.
+- Preserve the holdout order and seed when resuming.
+- Record incomplete runs separately from complete conditions.
+
+These are methodological safeguards, not only operational advice: fixed seeds and resume-safe outputs prevent interruptions from silently changing the stochastic sample.
