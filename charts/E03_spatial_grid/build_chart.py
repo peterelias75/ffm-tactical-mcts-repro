@@ -2,6 +2,7 @@
 """Render E03 as ground-truth versus simulated event density on pitch grids."""
 from __future__ import annotations
 import json
+import shutil
 from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
@@ -65,4 +66,6 @@ for col in range(3):
 fig.canvas.draw()
 scale_y=min(cb.ax.get_position().y0 for cb in colorbars) - .060
 fig.text(.52,scale_y,'Mean Event per Grid Cell',ha='center',va='top',fontsize=17,fontweight='bold',color='#111827')
-out=HERE/'plot.png'; fig.savefig(out,dpi=220,facecolor='none',transparent=True,bbox_inches='tight',pad_inches=.01); plt.close(fig); print(out)
+out=HERE/'plot.png'; fig.savefig(out,dpi=220,facecolor='none',transparent=True,bbox_inches='tight',pad_inches=.01); plt.close(fig)
+shutil.copyfile(out,HERE/'chart.png')
+print(out)
