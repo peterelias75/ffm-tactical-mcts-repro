@@ -18,26 +18,35 @@ def load(path):
 def style():
     plt.rcParams.update({"figure.facecolor":"#F8FAFC","axes.facecolor":"#FFFFFF","axes.edgecolor":"#CBD5E1","axes.titleweight":"bold","axes.titlesize":16,"axes.labelcolor":"#334155","xtick.color":"#475569","ytick.color":"#475569","font.size":10,"grid.color":"#E2E8F0","grid.linewidth":0.8})
 
-def finish(fig, ax, out, source, interim=False):
+def finish(fig, ax, out, source, interim=False, transparent=False):
     ax.spines[["top","right"]].set_visible(False)
     ax.grid(axis="y", alpha=.85, zorder=0)
     note = f"Source: {source}"
     if interim: note += "  •  INTERIM — incomplete run"
     fig.text(.01,.01,note,fontsize=7,color="#64748B")
     fig.tight_layout(rect=(0,.035,1,1))
-    fig.savefig(out,dpi=200,bbox_inches="tight")
+    if transparent:
+        fig.patch.set_alpha(0)
+        ax.patch.set_alpha(0)
+    fig.savefig(
+        out,
+        dpi=200,
+        bbox_inches="tight",
+        facecolor="none" if transparent else fig.get_facecolor(),
+        transparent=transparent,
+    )
     plt.close(fig)
 
 def labels(ax, bars, fmt="{:.2f}"):
     for b in bars:
         v=b.get_height(); ax.text(b.get_x()+b.get_width()/2,v,fmt.format(v),ha="center",va="bottom" if v>=0 else "top",fontsize=9,fontweight="bold",color="#334155")
 
-def grouped(title, ylabel, names, series, out, source, interim=False):
+def grouped(title, ylabel, names, series, out, source, interim=False, transparent=False):
     fig,ax=plt.subplots(figsize=(9,5.2)); x=np.arange(len(names)); width=.8/len(series)
     for i,(label,vals) in enumerate(series.items()):
         bars=ax.bar(x-.4+width/2+i*width,vals,width,label=label,color=COLORS[i],zorder=3); labels(ax,bars)
     ax.set_title(title,loc="left"); ax.set_ylabel(ylabel); ax.set_xticks(x,names); ax.legend(frameon=False,ncol=min(4,len(series)),loc="upper center",bbox_to_anchor=(.5,1.0)); ax.axhline(0,color="#94A3B8",lw=.8)
-    finish(fig,ax,out,source,interim)
+    finish(fig,ax,out,source,interim,transparent=transparent)
 
 def single(title,ylabel,names,vals,out,source,colors=None,interim=False):
     fig,ax=plt.subplots(figsize=(8.5,5)); bars=ax.bar(names,vals,color=colors or COLORS[:len(vals)],width=.62,zorder=3); labels(ax,bars); ax.set_title(title,loc="left"); ax.set_ylabel(ylabel); ax.axhline(0,color="#94A3B8",lw=.9); finish(fig,ax,out,source,interim)
@@ -51,7 +60,7 @@ def build(key):
         single("E01 — Forward-model fidelity","MAE / MAD (native metric units)",["Possession\n(pp)","Passes","Shots","Dribbles"],[d["possession_mae_pp"],d["passes_mae"],d["shots_mae"],d["dribbles_mae"]],out,"e01_historical_ffm/results.json")
     elif key=="E02_token_augmentation":
         v=load(RUNS/"e02_token_augmentation/results.json")["variants"]; order=["no_aug","untyped_aug","typed_aug"]
-        grouped("E02 — Effect of intervention-token augmentation","Mean absolute deviation (lower is better)",[v[k]["paper_label"] for k in order],{"Possession (pp)":[v[k]["possession_mad_pct"] for k in order],"Shots":[v[k]["shots_mad"]["avg"] for k in order],"Dribbles":[v[k]["dribbles_mad"]["avg"] for k in order],"Events":[v[k]["total_events_mad"] for k in order]},out,"e02_token_augmentation/results.json")
+        grouped("E02 — Effect of intervention-token augmentation","Mean absolute deviation (lower is better)",[v[k]["paper_label"] for k in order],{"Possession (pp)":[v[k]["possession_mad_pct"] for k in order],"Shots":[v[k]["shots_mad"]["avg"] for k in order],"Dribbles":[v[k]["dribbles_mad"]["avg"] for k in order],"Events":[v[k]["total_events_mad"] for k in order]},out,"e02_token_augmentation/results.json",transparent=True)
     elif key=="E03_spatial_grid":
         v=load(RUNS/"e03_spatial_grid/results.json")["variants"]; order=["coarse_4x6","regular_8x12","fine_16x24"]
         grouped("E03 — Spatial grid resolution","MAD (lower is better)",[v[k]["paper_label"] for k in order],{"Possession (pp)":[v[k]["possession_mad_pct"] for k in order],"Shots":[v[k]["shots_mad"]["avg"] for k in order],"Events":[v[k]["total_events_mad"] for k in order]},out,"e03_spatial_grid/results.json")
