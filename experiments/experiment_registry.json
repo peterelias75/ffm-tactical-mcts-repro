@@ -105,6 +105,26 @@
       "name": "match_context_analysis",
       "possession_bins": ["<45", "45-55", ">55"],
       "status": "derived_after_E05"
+    },
+    {
+      "id": "E10",
+      "name": "active_intervention_cooldown",
+      "cooldown_minutes": [1, 5, 10],
+      "status": "complete",
+      "n_matches_per_condition": 50,
+      "baseline": "experiments/runs/E08_plain_mcts_step1_sim5_n50/lookahead_tokens_200/results.json",
+      "outputs": [
+        "experiments/runs/E10_plain_mcts_intervention_cooldown_n50/cooldown_5/results.json",
+        "experiments/runs/E10_plain_mcts_intervention_cooldown_n50/cooldown_10/results.json"
+      ],
+      "best": {
+        "cooldown_minutes": 5,
+        "mean_delta_pp": 3.420009662246868,
+        "pct_matches_improved": 70.0,
+        "mean_gain_when_improved_pp": 7.829914135116861,
+        "bootstrap_lcb90_pp": 1.8027756798774437
+      },
+      "note": "Decisions are evaluated every minute; after a non-no-op action, active interventions are blocked until the recovery window expires."
     }
   ]
 }
