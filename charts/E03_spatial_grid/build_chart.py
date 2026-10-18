@@ -63,6 +63,6 @@ for col in range(3):
  cb.ax.tick_params(labelsize=10)
  colorbars.append(cb)
 fig.canvas.draw()
-scale_y=min(cb.ax.get_position().y0 for cb in colorbars) - .040
-fig.text(.52,scale_y,'Mean Events per Grid Cell',ha='center',va='top',fontsize=16,fontweight='bold',color='#111827')
+scale_y=min(cb.ax.get_position().y0 for cb in colorbars) - .060
+fig.text(.52,scale_y,'Mean Event per Grid Cell',ha='center',va='top',fontsize=17,fontweight='bold',color='#111827')
 out=HERE/'plot.png'; fig.savefig(out,dpi=220,facecolor='none',transparent=True,bbox_inches='tight',pad_inches=.01); plt.close(fig); print(out)
