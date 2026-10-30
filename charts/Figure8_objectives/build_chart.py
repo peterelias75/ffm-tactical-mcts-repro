@@ -40,3 +40,68 @@ fig,c=plt.subplots(figsize=(8.5,6)); c.axis('off'); c.set_title('Figure 8c — A
 for i,(cnt,label) in enumerate(zip(counts,names)):
  ia=c.inset_axes([.03+i*.49,.16,.45,.70]); ia.pie(cnt,colors=piecols,autopct='%1.0f%%',textprops={'color':FG,'weight':'bold'},wedgeprops={'edgecolor':'white','linewidth':.7}); ia.text(0,-1.25,label,ha='center',color=FG,fontweight='bold'); ia.set_aspect('equal')
 c.legend(['Attacking','Defending','Neutral'],title='Intervention type',frameon=False,loc='upper center',ncol=3); fig.set_size_inches(8.5,6,forward=True); fig.subplots_adjust(left=.06,right=.94,bottom=.10,top=.88); fig.savefig(HERE/'figure_8c.png',dpi=220,facecolor='none',transparent=True); plt.close(fig); print(HERE/'figure_8c.png')
+
+# Also build the combined, transparent Figure 8 used for the project overview.
+from matplotlib.patches import Patch
+
+plt.rcParams.update({"font.weight":"normal", "axes.labelweight":"normal", "axes.titleweight":"normal"})
+fig, (a, b, c) = plt.subplots(1, 3, figsize=(20.48, 6.17), gridspec_kw={"width_ratios":[1,1,1]})
+fig.patch.set_alpha(0)
+shots_color, poss_color = "#f4a261", "#457b9d"
+coral_color, teal_color, slate_color = "#ed6a4e", "#2a9d8f", "#8d99ae"
+for ax in (a, b):
+    ax.set_facecolor("none")
+    ax.grid(False)
+    ax.axhline(0, color="#111111", lw=.6, zorder=1)
+    for spine in ax.spines.values():
+        spine.set_color("none")
+
+def combined_labels(ax, bars, percent=False):
+    for bar in bars:
+        value = bar.get_height()
+        label = f"{value:.0f}%" if percent else f"{value:.2f}"
+        ax.text(bar.get_x()+bar.get_width()/2, value, label, ha="center", va="bottom", color="#111111", fontsize=10, fontweight="normal")
+
+bars = a.bar(x-w/2, shots, w, color=shots_color, label="shots", zorder=3)
+bars2 = a.bar(x+w/2, pos, w, color=poss_color, label="poss", zorder=3)
+combined_labels(a, bars)
+combined_labels(a, bars2)
+a.set_xticks(x, names, fontsize=11)
+a.set_ylim(0, max(shots+pos)*1.17)
+a.set_title("Average Gain per Objective", fontsize=14, pad=8, fontweight="normal")
+a.set_ylabel("Average Gain", fontsize=13, fontweight="normal")
+a.legend(frameon=False, fontsize=10, loc="upper left")
+a.set_xlabel("")
+
+bars = b.bar(x-w/2, si, w, color=shots_color, label="shots", zorder=3)
+bars2 = b.bar(x+w/2, pi, w, color=poss_color, label="poss", zorder=3)
+combined_labels(b, bars, percent=True)
+combined_labels(b, bars2, percent=True)
+b.set_xticks(x, names, fontsize=11)
+b.set_ylim(0, 104)
+b.set_title("Percentage of Improved Matches", fontsize=14, pad=8, fontweight="normal")
+b.set_ylabel("% of Improved Matches", fontsize=13, fontweight="normal")
+b.legend(frameon=False, fontsize=10, loc="upper left")
+b.set_xlabel("")
+
+c.axis("off")
+c.set_title("Intervention Distribution", fontsize=14, pad=4)
+piecols = [coral_color, teal_color, slate_color]
+pie_axes = [c.inset_axes([-.045,.005,.545,.94]), c.inset_axes([.50,.005,.545,.94])]
+for ax, (cnt, label) in zip(pie_axes, zip(counts, names)):
+    ax.pie(cnt, colors=piecols, autopct="%1.0f%%",
+           textprops={"color":"white","weight":"bold","fontsize":11},
+           wedgeprops={"edgecolor":"none","linewidth":0}, radius=1.12)
+    ax.text(0, -1.17, label, ha="center", va="top", color="#111111", fontsize=11)
+    ax.set_aspect("equal")
+c.legend(handles=[Patch(facecolor=col, label=lab) for col, lab in zip(piecols, ["Attacking","Defending","Neutral"])],
+         frameon=False, ncol=3, loc="upper center", bbox_to_anchor=(.5,.99), fontsize=10)
+for ax in (a, b):
+    ax.set_box_aspect(1)
+c.set_box_aspect(1)
+fig.suptitle("Objective Trade-off on Shots, Possession, and Interventions", fontsize=18, fontweight="normal", y=.995)
+fig.subplots_adjust(left=.035, right=.995, bottom=.035, top=.89, wspace=.055)
+out = HERE / "plot.png"
+fig.savefig(out, dpi=100, facecolor="none", transparent=True, bbox_inches="tight", pad_inches=0)
+plt.close(fig)
+print(out)
